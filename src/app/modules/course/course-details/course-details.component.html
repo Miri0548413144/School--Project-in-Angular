@@ -1,0 +1,38 @@
+<p class="header">course-details works!</p>
+<div *ngIf="course" class="course-details">
+    <div class="center-content">
+        <h2>Name: {{ course.name }}</h2>
+        <div class="details-item">
+            <p>Count Lessons: {{ course.lessonCount }}</p>
+
+        </div>
+        <div class="details-item">
+            <p>Date Start: {{ course.startDate | date:'shortDate' }}</p>
+
+        </div>
+        <div class="details-item">
+            <p>Category: {{ getCategoryName(course.categoryId) }}</p>
+
+        </div>
+        <div class="details-item">
+            <p>Lecturer:{{ getLecturerName(course.lecturerId) }}</p>
+
+        </div>
+        <div *ngIf="course.syllabus && course.syllabus.length > 0" class="details-item">
+            <h3>Syllabus:</h3>
+            <ul>
+                <li class="details-item" *ngFor="let syllabusItem of course.syllabus">{{ syllabusItem }}</li>
+            </ul>
+            <div class="details-item">
+                <img src="{{course.learningMode.toString() | learningModeIcon}}" alt="Learning Mode Icon"
+                    class="img-fluid rounded-circle" style="width: 50px; height: 50px;">
+            </div>
+        </div>
+        <div *ngIf="course.image" class="details-item">
+            <img class="course-image" [src]="course.image" alt="Course Image">
+        </div>
+        <div *ngIf="isLecturer" class="details-item">
+            <button type="button" class="edit-button" [routerLink]="['/edit-course', course.id]">Edit Course</button>
+        </div>
+    </div>
+</div>

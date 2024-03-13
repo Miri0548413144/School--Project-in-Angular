@@ -6,33 +6,32 @@ export enum LearningMode {
 export class Course {
     id: number;
     name: string;
-    categoryCode: number;
+    categoryId: number;
     lessonCount: number;
     startDate: Date;
     syllabus: string[];
     learningMode: LearningMode;
-    lecturerCode: number;
+    lecturerId: number;
     image: string;
 
     constructor(
-        id: number,
         name: string,
-        categoryCode: number,
+        categoryId: number,
         lessonCount: number,
         startDate: Date,
         syllabus: string[],
         learningMode: LearningMode,
-        lecturerCode: number,
+        lecturerId: number,
         image: string
     ) {
-        this.id = id;
+        this.id = 0;
         this.name = name;
-        this.categoryCode = categoryCode;
+        this.categoryId = categoryId;
         this.lessonCount = lessonCount;
         this.startDate = startDate;
         this.syllabus = syllabus;
         this.learningMode = learningMode;
-        this.lecturerCode = lecturerCode;
+        this.lecturerId = lecturerId;
         this.image = image;
     }
 }
