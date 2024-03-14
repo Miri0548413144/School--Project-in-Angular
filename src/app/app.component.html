@@ -1,27 +1,13 @@
-<!-- <app-login></app-login>
-  <app-logout></app-logout>
-  <app-register></app-register> -->
-  <ul>
-    <li><a routerLink="/login">login</a></li>
-    <li><a routerLink="/logout">logout</a></li>
-    <li><a routerLink="/register">register</a></li>
-    <li><a routerLink="/allCourses">allCourses</a></li>
-    <li><a routerLink="/addCourses">addCourses</a></li>
-    <li><a routerLink="/courseDetailes">courseDetailes</a></li>
-</ul>
-  <router-outlet></router-outlet>
-<!-- app.component.html -->
-
-<!-- <div *ngIf="!isLoggedIn; else loggedInTemplate">
-    <app-register></app-register>
-  </div>
-  
-  <ng-template #loggedInTemplate>
-    <app-login></app-login>
-  </ng-template>
-   -->
-   <!-- <div *ngIf="!showRegister">
-  </div>
-  <div *ngIf="showRegister">
-    <app-register></app-register>
-  </div> -->
+<mat-toolbar>
+  <span>School Site   </span>
+  <nav>
+    <ul>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/register">Register</a></li>
+      <li><a routerLink="/allCourses">All Courses</a></li>
+      <li><a routerLink="/addCourses">Add Courses</a></li>
+      <li><a routerLink="/logout">Logout</a></li>
+    </ul>
+  </nav>
+</mat-toolbar>
+<router-outlet></router-outlet>

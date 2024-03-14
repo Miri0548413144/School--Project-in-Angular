@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Course, LearningMode } from '../course.model';
+import { Course, LearningMode } from '../models/course.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../course.service';
 import { LoginComponent } from '../../user/login/login.component';
 import { UserService } from '../../user/user.service';
-import { Category } from '../category.model';
-import { Lecturer } from 'src/app/models/lecturer.model';
+import { Category } from '../models/category.model';
+import { Lecturer } from 'src/app/modules/user/models/lecturer.model';
 
 @Component({
   selector: 'app-course-details',
@@ -19,6 +19,18 @@ export class CourseDetailsComponent implements OnInit {
   isLecturer: boolean = false;
   categories!: Category[];
   lecturers!: Lecturer[];
+  getCategoryImg():string{
+    return this.categories[this.course.categoryId-1].iconPath;
+  }
+  isStartInNextWeek(startDate: any): boolean {
+    if (!(startDate instanceof Date)) {
+      startDate = new Date(startDate);
+    }
+    const today = new Date();
+    const nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+    const isNextWeek = startDate.getTime() >= today && startDate.getTime() <= nextWeek;
+    return isNextWeek;
+  }
   getLearningModeString(mode: LearningMode): string {
     return this.learningModes[mode];
   }

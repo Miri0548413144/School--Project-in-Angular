@@ -1,4 +1,20 @@
 .card-img-top {
-height: 200px; /* כדי לשמור על יחסי תמונה, ניתן להגדיר גובה בלבד */
-object-fit: cover; /* כדי למנוע מהתמונה להתרסק ולהשמיט לתוך הקרטיס */
+height: 200px;
+object-fit: cover; 
+}
+.card-title{
+    font-size: 30px;
+    color: #0b817b;
+}
+.card-text{
+    font-size: medium;
+}
+#btn1{
+    background-color: #0b817b;
+    border-color: #0b817b;
+    color: white;
+}
+.l1{
+    color: #0b817b;
+    text-align: center;
 }

@@ -1,0 +1,58 @@
+/* styles.css (או styles.scss) */
+
+mat-toolbar {
+    background-color: #0b817b; 
+  }
+  
+  nav ul {
+    list-style-type: none; /* הסרת סוג הרשימה */
+    margin: 0; /* הסרת ריווחים חיצוניים */
+    padding: 0; /* הסרת ריווחים פנימיים */
+    display: flex; /* הצגת הפריטים ברצף אופקי */
+  }
+  
+  nav ul li {
+    margin-right: 20px; /* ריווח בין הפריטים */
+  }
+  
+  nav ul li a {
+    text-decoration: none; /* הסרת קווים מתחת לטקסט */
+    color: white; /* צבע טקסט לבן */
+    font-weight: bold; /* הדגשת משקל הטקסט */
+    font-size: 16px; /* גודל הטקסט */
+  }
+  
+  nav ul li a:hover {
+    color: #E0E0E0; /* צבע הטקסט בעת העברה עם העכבר */
+  }
+  /* styles.css (או styles.scss) */
+
+mat-toolbar {
+    background-color: #0b817b; /* רקע צבע כחול */
+    display: flex; /* הצגת הפריטים ברצף אופקי */
+    justify-content: space-between; /* יצירת מרחב שאוטו-מתאים בין הפריטים */
+    color: white; /* צבע טקסט לבן */
+  }
+  
+  nav ul {
+    list-style-type: none; /* הסרת סוג הרשימה */
+    margin: 0; /* הסרת ריווחים חיצוניים */
+    padding: 0; /* הסרת ריווחים פנימיים */
+    display: flex; /* הצגת הפריטים ברצף אופקי */
+  }
+  
+  nav ul li {
+    margin-right: 20px; /* ריווח בין הפריטים */
+  }
+  
+  nav ul li a {
+    text-decoration: none; /* הסרת קווים מתחת לטקסט */
+    color: white; /* צבע טקסט לבן */
+    font-weight: bold; /* הדגשת משקל הטקסט */
+    font-size: 16px; /* גודל הטקסט */
+  }
+  
+  nav ul li a:hover {
+    color: #E0E0E0; /* צבע הטקסט בעת העברה עם העכבר */
+  }
+  

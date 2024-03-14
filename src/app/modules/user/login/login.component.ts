@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UserService } from '../user.service';
-import { User } from '../user.model';
-import { Lecturer } from 'src/app/models/lecturer.model';
-
+import { User } from '../models/user.model';
+import { Lecturer } from 'src/app/modules/user/models/lecturer.model';
+import { HomePageComponent } from 'src/app/home-page/home-page.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -32,11 +32,9 @@ export class LoginComponent implements OnInit {
     });
     this._userService.getUsers().subscribe(data => {
       this.users = data
-      console.log("users", this.users);
     })
     this._userService.getLecturer().subscribe(data => {
       this.lecturers = data
-      console.log("lecturers", this.lecturers);
     })
   }
 
@@ -65,7 +63,6 @@ export class LoginComponent implements OnInit {
     if (this.isLecturer) {
       const lec = this.lecturers.find(l => l.name.toLowerCase() === username.toLowerCase());
       if (lec) {
-        console.log("true");
         return true;
       }
       return false;
@@ -73,7 +70,6 @@ export class LoginComponent implements OnInit {
     else {
       const user = this.users.find(u => u.name.toLowerCase() === username.toLowerCase());
       if (user) {
-        console.log("true");
         return true;
       }
       return false;

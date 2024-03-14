@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
-  styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
   constructor(private router: Router,){

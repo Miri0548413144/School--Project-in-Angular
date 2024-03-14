@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { UserService } from "./user.service";
 import { LogoutComponent } from "./logout/logout.component";
+import { MatInputModule } from '@angular/material/input'
 
 @NgModule({
     declarations:[
@@ -18,6 +19,7 @@ import { LogoutComponent } from "./logout/logout.component";
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
+        MatInputModule
     ],
     providers:[UserService],
     exports:[ 

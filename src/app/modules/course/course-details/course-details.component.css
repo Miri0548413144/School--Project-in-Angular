@@ -1,3 +1,5 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
 .course-details {
     max-width: 600px;
     margin: auto;
@@ -26,16 +28,14 @@ img {
 }
 
 .course-details {
-    /* יתאים את התוכן למרכז באופן כללי */
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* אורך מינימלי של התצוגה לפחות לגובה של המסך */
+    min-height: 100vh; 
 }
 
-/* דוגמה להוספת סגנון לכפתור עריכה */
 .details-item button {
-    margin-top: 20px; /* מרווח למעלה */
+    margin-top: 20px; 
 }
 .course-details {
     max-width: 600px;
@@ -71,3 +71,21 @@ img {
     margin-top: 10px;
   }
   
+
+  .upcoming-week {
+    font-weight: bold;
+    color: rgb(149, 11, 87); 
+  }
+  ul {
+    list-style-type: none; 
+    padding: 0; 
+  }
+  .card-title{
+    font-size: 30px;
+    color: #0b817b;
+}
+#btn1{
+  background-color: #0b817b;
+  border-color: #0b817b;
+  color: white;
+}

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { LearningMode } from './course.model';
+import { LearningMode } from './models/course.model';
 
 @Pipe({
   name: 'learningModeIcon'

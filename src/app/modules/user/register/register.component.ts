@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { User } from '../user.model';
+import { User } from '../models/user.model';
 import { UserService } from '../user.service';
 import { Observable, map } from 'rxjs';
 
@@ -59,17 +59,14 @@ export class RegisterComponent implements OnInit {
 
     const user = this.users.find(u => u.name.toLowerCase() === username.toLowerCase());
     if (user) {
-      console.log("user:", user)
       return true;
     }
-    console.log("user!:", user)
     return false;
   }
 
   saveUserToServer(): void {
     const us = this.userForm.value;
     const user = new User(us.name, us.address, us.email, us.password);
-    console.log("usertosave:", user)
     this.userService.addUser(user).subscribe(() => {
       Swal.fire('Success', 'Registration successful! Redirecting to courses page...', 'success');
       sessionStorage.setItem('currentUser', JSON.stringify(user));

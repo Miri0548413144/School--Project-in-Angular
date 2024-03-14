@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../course.service';
-import { Course, LearningMode } from '../course.model';
+import { Course, LearningMode } from '../models/course.model';
 import Swal from 'sweetalert2';
-import { Category } from '../category.model';
-import { Lecturer } from 'src/app/models/lecturer.model';
+import { Category } from '../models/category.model';
+import { Lecturer } from 'src/app/modules/user/models/lecturer.model';
 import { UserService } from '../../user/user.service';
 
 @Component({
@@ -38,7 +38,6 @@ export class AddCourseComponent implements OnInit {
     this.addSyllabus();
     this.route.paramMap.subscribe(params => {
       const courseId = parseInt(params.get('id') || '');
-      console.log(courseId)
       if (courseId) {
         this._courseService.getCourseById(courseId).subscribe(course => {
           this.course = course;
@@ -49,25 +48,37 @@ export class AddCourseComponent implements OnInit {
       }
     });
   }
- fetchf(course:Course) :void{
+  public fetchf(course: Course): void {
     this.courseForm.patchValue({
-      id: course.id,
       name: course.name,
       categoryId: course.categoryId,
       lessonCount: course.lessonCount,
       startDate: course.startDate,
-      syllabus: course.syllabus,
       learningMode: course.learningMode,
       lecturerId: course.lecturerId,
       image: course.image
     });
+
+    // Clear existing syllabus controls
+    while (this.syllabusControls.length !== 0) {
+      this.removeSyllabus(0);
+    }
+
+    // Populate syllabus controls with the syllabus of the course
+    course.syllabus.forEach(syllabusItem => {
+      this.addSyllabus();
+    });
+
+    // Set the value of each syllabus control
+    course.syllabus.forEach((syllabusItem, index) => {
+      this.syllabusControls.at(index).setValue(syllabusItem);
+    });
   }
-  // הפונקציה שמאתחלת את הטופס
   private initForm(): void {
     this.courseForm = this.fb.group({
       name: [ '', Validators.required],
       categoryId: [ '', Validators.required],
-      lessonCount: [ '', Validators.required],
+      lessonCount: ['', [Validators.required, Validators.min(3), Validators.pattern(/^[1-9]\d*$/)]],
       startDate: [ '', Validators.required],
       syllabus: this.fb.array([]),
       learningMode: [ '', Validators.required],
@@ -111,7 +122,6 @@ export class AddCourseComponent implements OnInit {
     );
     if (this.course) {
       this._courseService.editCourse(newCourse, this.course.id).subscribe(() => {
-        console.log("newCourse", newCourse);
         this.courseForm.reset();
         Swal.fire('Success', 'Login successful! Redirecting to courses page...', 'success');
         this.router.navigate(['/allCourses']);
@@ -121,7 +131,6 @@ export class AddCourseComponent implements OnInit {
     }
     else {
       this._courseService.addCourse(newCourse).subscribe(() => {
-        console.log("newCourse", newCourse);
         this.courseForm.reset();
         Swal.fire('Success', 'Login successful! Redirecting to courses page...', 'success');
         this.router.navigate(['/allCourses']);

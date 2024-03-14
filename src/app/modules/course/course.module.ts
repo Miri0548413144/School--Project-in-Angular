@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { LearningModeIconPipe } from "./learning-mode-icon.pipe";
 import { RouterModule } from "@angular/router";
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     declarations:[
@@ -21,7 +23,9 @@ import { RouterModule } from "@angular/router";
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
-        RouterModule
+        RouterModule,
+        MatIconModule,
+        MatInputModule
     ],
     providers:[CourseService],
     exports:[

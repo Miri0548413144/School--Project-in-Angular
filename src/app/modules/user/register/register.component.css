@@ -1,0 +1,28 @@
+.container {
+    margin-top: 50px;
+  }
+  
+  .login-container,
+  .register-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .toggle-lecturer {
+    margin-top: 10px;
+  }
+  
+  .lecturer-section {
+    margin-top: 20px;
+  }
+  #btn1{
+    background-color: #0b817b;
+    border-color: #0b817b;
+}
+.l1{
+    color: #0b817b;
+}

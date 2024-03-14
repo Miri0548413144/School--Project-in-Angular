@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { User } from "./user.model";
+import { User } from "./models/user.model";
 import { Observable } from "rxjs";
-import { Lecturer } from "src/app/models/lecturer.model";
+import { Lecturer } from "src/app/modules/user/models/lecturer.model";
 
 @Injectable()
 export class UserService{
@@ -13,7 +13,6 @@ export class UserService{
         return this._http.get<User>("/api/Users/"+id);
     }
     addUser(newUser:User):Observable<any>{
-        console.log("usertosaveservic:", newUser);
         return this._http.post<any>("/api/Users",newUser);
     }
     getLecturer():Observable<Lecturer[]>{
